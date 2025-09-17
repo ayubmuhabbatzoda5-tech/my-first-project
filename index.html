@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дастаи мо - Salam Consulting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0a0a0a;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+            z-index: -2;
+        }
+
+        .team-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .floating-elements {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+            top: 0;
+            left: 0;
+        }
+
+        .floating-book {
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            border-radius: 8px;
+            animation: bookFly 8s ease-in-out infinite;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .floating-book::before {
+            content: '📚';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+        }
+
+        .book1 { top: 10%; right: 15%; animation-delay: 0s; }
+        .book2 { bottom: 20%; left: 10%; animation-delay: 3s; }
+        .book3 { top: 60%; right: 25%; animation-delay: 6s; }
+
+        @keyframes bookFly {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); opacity: 0.7; }
+            25% { transform: translateY(-40px) rotate(15deg) scale(1.1); opacity: 1; }
+            50% { transform: translateY(-20px) rotate(-10deg) scale(0.9); opacity: 0.8; }
+            75% { transform: translateY(-30px) rotate(10deg) scale(1.05); opacity: 0.9; }
+        }
+
+        .floating-diploma {
+            position: absolute;
+            width: 70px;
+            height: 50px;
+            background: linear-gradient(135deg, #ffd700, #ffcc00);
+            border-radius: 5px;
+            animation: diplomaSpin 10s ease-in-out infinite;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .floating-diploma::before {
+            content: '🎓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.8rem;
+        }
+
+        .diploma1 { top: 30%; left: 20%; animation-delay: 1s; }
+        .diploma2 { bottom: 40%; right: 25%; animation-delay: 4s; }
+
+        @keyframes diplomaSpin {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(360deg); }
+        }
+
+        .success-star {
+            position: absolute;
+            color: #ffd700;
+            font-size: 1.5rem;
+            animation: starTwinkle 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 5px #ffd700);
+        }
+
+        .star1 { top: 15%; left: 20%; animation-delay: 0s; }
+        .star2 { top: 70%; right: 10%; animation-delay: 1.5s; }
+        .star3 { bottom: 15%; left: 25%; animation-delay: 3s; }
+        .star4 { top: 35%; right: 30%; animation-delay: 2s; }
+        .star5 { top: 80%; left: 35%; animation-delay: 0.8s; }
+        .star6 { bottom: 60%; right: 40%; animation-delay: 2.8s; }
+
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.3) rotate(180deg); }
+        }
+
+        .light-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 50%;
+            animation: particleMove 5s linear infinite;
+            filter: blur(1px);
+        }
+
+        .particle1 { top: 20%; left: 5%; animation-delay: 0s; }
+        .particle2 { top: 50%; right: 8%; animation-delay: 1s; }
+        .particle3 { bottom: 30%; left: 15%; animation-delay: 2s; }
+        .particle4 { top: 80%; right: 20%; animation-delay: 3s; }
+        .particle5 { top: 40%; left: 30%; animation-delay: 4s; }
+        .particle6 { top: 60%; left: 25%; animation-delay: 0.5s; }
+        .particle7 { bottom: 10%; right: 15%; animation-delay: 2.5s; }
+        .particle8 { top: 15%; right: 30%; animation-delay: 1.2s; }
+
+        @keyframes particleMove {
+            0% { opacity: 0; transform: translateY(0px) translateX(0px) scale(1); }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(-100px) translateX(50px) scale(0.5); }
+        }
+
+        .team-title {
+            text-align: center;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+            animation: titleFloat 6s ease-in-out infinite, titleGlow 3s ease-in-out infinite alternate;
+            position: relative;
+        }
+
+        .team-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #ffd700, #ff6b6b);
+            border-radius: 2px;
+            animation: lineExpand 2s ease-out;
+        }
+
+        @keyframes titleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes titleGlow {
+            0% { text-shadow: 0 4px 8px rgba(0,0,0,0.5), 0 0 30px rgba(255, 215, 0, 0.5); }
+            100% { text-shadow: 0 4px 8px rgba(0,0,0,0.5), 0 0 50px rgba(255, 107, 107, 0.8); }
+        }
+
+        @keyframes lineExpand {
+            0% { width: 0; }
+            100% { width: 100px; }
+        }
+
+        .team-container {
+            position: relative;
+            max-width: 800px; /* Стандарт кардани калонӣ */
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .team-member {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 30px 20px; /* Кам кардани padding */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            animation: slideInUp 0.8s ease-out both;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            max-width: 400px; /* Стандарт кардани калонӣ */
+            width: 100%;
+        }
+
+        .team-member:nth-child(1) { animation-delay: 0.2s; }
+        .team-member:nth-child(2) { animation-delay: 0.4s; }
+        .team-member:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes slideInUp {
+            0% { opacity: 0; transform: translateY(50px) scale(0.8); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .team-member:hover::before {
+            left: 100%;
+        }
+
+        .team-member:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 35px 70px rgba(0,0,0,0.5);
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 215, 0, 0.4);
+        }
+
+        .team-member img {
+            width: 100px; /* Кам кардани калонӣ */
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px; /* Кам кардани margin */
+            border: 3px solid rgba(255,255,255,0.2);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            animation: profileFloat 6s ease-in-out infinite;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+        }
+
+        @keyframes profileFloat {
+            0%, 100% { transform: translateY(0px) rotateX(2deg); }
+            50% { transform: translateY(-15px) rotateX(-2deg); }
+        }
+
+        .team-member:hover img {
+            transform: scale(1.05) rotateY(5deg);
+            box-shadow: 0 35px 70px rgba(0,0,0,0.5);
+        }
+
+        .team-member h3 {
+            font-size: 1.3rem; /* Кам кардани font-size */
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            transition: color 0.3s ease;
+        }
+
+        .team-member:hover h3 {
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .team-member p {
+            font-size: 0.9rem; /* Кам кардани font-size */
+            color: white;
+            opacity: 0.9;
+            margin-bottom: 12px;
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px; /* Кам кардани gap */
+            margin: 20px 0; /* Кам кардани margin */
+        }
+
+        .social-links a {
+            width: 40px; /* Кам кардани калонӣ */
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem; /* Кам кардани font-size */
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+            z-index: -1;
+        }
+
+        .social-links a:hover::before {
+            transform: scale(1);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px) scale(1.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .instagram { background: linear-gradient(135deg, #1a1a2e, #0f3460); }
+        .instagram:hover::before { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+
+        .linkedin { background: linear-gradient(135deg, #1a1a2e, #0f3460); }
+        .linkedin:hover::before { background: linear-gradient(45deg, #0077b5, #0e76a8); }
+
+        .telegram { background: linear-gradient(135deg, #1a1a2e, #0f3460); }
+        .telegram:hover::before { background: linear-gradient(45deg, #0088cc, #0066aa); }
+
+        .mail { background: linear-gradient(135deg, #1a1a2e, #0f3460); }
+        .mail:hover::before { background: linear-gradient(45deg, #ea4335, #d73027); }
+
+        .slider-dots {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 4px;
+            background-color: transparent;
+            border: 2px solid white;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: white;
+        }
+
+        @media (max-width: 768px) {
+            .team-section { padding: 60px 20px; }
+            .floating-book { width: 40px; height: 50px; }
+            .floating-diploma { width: 50px; height: 35px; }
+            .success-star { font-size: 1.2rem; }
+            .team-container { max-width: 100%; }
+            .team-member { padding: 25px 15px; max-width: 100%; }
+            .team-member img { width: 90px; height: 90px; }
+            .social-links a { width: 35px; height: 35px; font-size: 0.9rem; }
+        }
+
+        @media (max-width: 480px) {
+            .team-member { padding: 20px 10px; }
+            .team-member img { width: 80px; height: 80px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-book book1"></div>
+        <div class="floating-book book2"></div>
+        <div class="floating-book book3"></div>
+        <div class="floating-diploma diploma1"></div>
+        <div class="floating-diploma diploma2"></div>
+        <div class="success-star star1">✨</div>
+        <div class="success-star star2">⭐</div>
+        <div class="success-star star3">🌟</div>
+        <div class="success-star star4">💫</div>
+        <div class="success-star star5">✨</div>
+        <div class="success-star star6">🌟</div>
+        <div class="light-particle particle1"></div>
+        <div class="light-particle particle2"></div>
+        <div class="light-particle particle3"></div>
+        <div class="light-particle particle4"></div>
+        <div class="light-particle particle5"></div>
+        <div class="light-particle particle6"></div>
+        <div class="light-particle particle7"></div>
+        <div class="light-particle particle8"></div>
+    </div>
+    
+    <section class="team-section">
+        <h2 class="team-title">Дастаи мо</h2>
+        
+        <div class="team-container">
+            <div class="slider">
+                <div class="slide">
+                    <div class="team-member">
+                        <img src="https://i.postimg.cc/Gtt5c0cG/photo-2025-06-26-22-57-44.jpg" alt="Абдурахмонбек Ахмедов" />
+                        <h3>Абдурахмонбек Аҳмедов</h3>
+                        <p>Муассиси Salam Consulting</p>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/_abdurahmonbek" class="instagram" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="mailto:akhmedovbek19@gmail.com" class="mail" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/abdurahmonbek-akhmedov-049792334" class="linkedin" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="team-member">
+                        <img src="https://i.postimg.cc/Jzzcv3zH/photo-2025-06-26-23-04-02.jpg" alt="Мухаммадшариф Расулов" />
+                        <h3>Муҳаммадшариф Расулов</h3>
+                        <p>Менеҷери маркетинг ва SMM</p>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/rasulov_9300" class="instagram" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="mailto:rasulov9300@gmail.com" class="mail" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="team-member">
+                        <img src="https://i.postimg.cc/1332BqxJ/IMG-20250420-210518-599.jpg" alt="Муҳаббатзода Аюб" />
+                        <h3>Муҳаббатзода Аюб</h3>
+                        <p>Мутахассиси IT ва амнияти кибернетикӣ</p>
+                        <div class="social-links">
+                            <a href="https://t.me/ayub_it_tj" class="telegram" title="Telegram">
+                                <i class="fab fa-telegram-plane"></i>
+                            </a>
+                            <a href="mailto:ayubmuhabbatzoda5@gmail.com" class="mail" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/ayub-muhabbatzoda-3a5bb1356" class="linkedin" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-dots">
+                <span class="dot active" onclick="showSlide(0)"></span>
+                <span class="dot" onclick="showSlide(1)"></span>
+                <span class="dot" onclick="showSlide(2)"></span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            if (index >= totalSlides) index = 0;
+            else if (index < 0) index = totalSlides - 1;
+            currentSlide = index;
+            document.querySelector('.slider').style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        // Auto-slide every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Initial display
+        document.addEventListener('DOMContentLoaded', function() {
+            showSlide(currentSlide);
+
+            let mouseX = 0, mouseY = 0;
+            let isMouseMoving = false;
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = (e.clientX / window.innerWidth) - 0.5;
+                mouseY = (e.clientY / window.innerHeight) - 0.5;
+                
+                if (!isMouseMoving) {
+                    isMouseMoving = true;
+                    requestAnimationFrame(updateParallax);
+                }
+            });
+
+            function updateParallax() {
+                const stars = document.querySelectorAll('.success-star');
+                const books = document.querySelectorAll('.floating-book');
+                const diplomas = document.querySelectorAll('.floating-diploma');
+                
+                stars.forEach((star, index) => {
+                    const speed = (index + 1) * 0.5;
+                    star.style.transform = `translate(${mouseX * speed * 10}px, ${mouseY * speed * 10}px)`;
+                });
+                
+                books.forEach((book, index) => {
+                    const speed = (index + 1) * 0.3;
+                    book.style.transform = `translate(${mouseX * speed * 8}px, ${mouseY * speed * 8}px)`;
+                });
+
+                diplomas.forEach((diploma, index) => {
+                    const speed = (index + 1) * 0.4;
+                    diploma.style.transform = `translate(${mouseX * speed * 6}px, ${mouseY * speed * 6}px)`;
+                });
+
+                isMouseMoving = false;
+            }
+
+            function randomizeParticles() {
+                const particles = document.querySelectorAll('.light-particle');
+                particles.forEach(particle => {
+                    const randomDelay = Math.random() * 5;
+                    const randomDuration = 3 + Math.random() * 4;
+                    particle.style.animationDelay = randomDelay + 's';
+                    particle.style.animationDuration = randomDuration + 's';
+                });
+            }
+
+            randomizeParticles();
+            const title = document.querySelector('.team-title');
+            title.style.animationPlayState = 'running';
+        });
+    </script>
+</body>
+</html>
